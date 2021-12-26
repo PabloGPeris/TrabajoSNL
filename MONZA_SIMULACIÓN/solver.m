@@ -1,7 +1,12 @@
 function [x_choque,y_choque,x_choque_m]=solver(a,b,v,ang_pos,x_resp,y_resp,piso,timer_choque)
 
+% PGP
+% if piso >= 7
+%     piso = 6;
+% end
+
 x_choque_m=zeros(4,1);
-if (piso==1 || piso==3 || piso==5)
+if (piso==1 || piso==3 || piso==5|| piso==7)
     x_choque=10;
 else
     if (piso==2 || piso==4 || piso==6)
@@ -36,12 +41,16 @@ if(timer_choque>=2)
             x_choque=pto_choque(3,1);
             x_choque_m=pto_choque;
         case 6
-            pto_choque=real(double(solve((-b*xc+a*((xc-d)*tan(ang_pos)-((9.8*(xc-d)^2)/(2*v^2*(cos(ang_pos)^2)))+h))==-0.54*(a*xc+b*(xc-d)*tan(ang_pos)-((9.8*(xc-d)^2)/(2*v^2*(cos(ang_pos)^2)))+h).^2+0.16,xc))); 
+            pto_choque=real(double(solve((-b*xc+a*((xc-d)*tan(ang_pos)-((9.8*(xc-d)^2)/(2*v^2*(cos(ang_pos)^2)))+h))==-0.54*(a*xc+b*(xc-d)*tan(ang_pos)-((9.8*(xc-d)^2)/(2*v^2*(cos(ang_pos)^2)))+h).^2-0.16,xc))); %PGP ? 
             x_choque=pto_choque(2,1);
             x_choque_m=pto_choque;
      end
      y_choque=(x_choque-d)*tan(ang_pos)-((9.8*(x_choque-d)^2)/(2*v^2*(cos(ang_pos)^2)))+h;
 end
+
+
+
+
 
 % yc=-0.54*pto_choque(2,1)^2+0.0686;
 
