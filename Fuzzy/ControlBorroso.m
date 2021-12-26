@@ -8,8 +8,8 @@ global riel %#ok<*NUSED>
 Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos 
 dificultad = 3;
 tsim = 30;
-dibujos = 0;
-animacion = 0;
+dibujos = 1;
+animacion = 1;
 
 % im = [...
 %     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;

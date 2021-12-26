@@ -9,7 +9,7 @@ for i = 1:length(riel)
         return
     end
 end
-dips('FIN')
+disp('FIN')
 ref = 0;
 
 
