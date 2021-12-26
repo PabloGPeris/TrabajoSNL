@@ -24,12 +24,13 @@ anim_giro_pistas;
 %**************************************************************************
 %***************GR�FICAS DE LAS CURVAS DE LA SIMULACI�N********************
 %**************************************************************************
-figure(1)
+figure(100)
 for j=1:length(xs)
     
     plot(mxp(j),myp(j)+0.01,'r*','lineWidth',15)
     
     hold on
+    
     %*********RECTAS*********
     plot(mxl1(j,:),myl1(j,:),'b','lineWidth',2);
     plot(mxl2(j,:),myl2(j,:),'b','lineWidth',2);
