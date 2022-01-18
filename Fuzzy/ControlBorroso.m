@@ -6,10 +6,10 @@ global riel %#ok<*NUSED>
 
 %% Parámetros de simulación
 Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos 
-dificultad = 3;
+dificultad = 4;
 tsim = 30;
-dibujos = 1;
-animacion = 1;
+dibujos = 0;
+animacion = 0;
 
 % im = [...
 %     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
@@ -27,7 +27,7 @@ animacion = 1;
 
 %% Diseño de controlador
 % Conjuntos borrosos
-reglasError = {-0.1 -0.05 0 0.05 0.1}; 
+reglasError = {-0.2 -0.1 0 0.1 0.2}; 
 reglasDError = {-0.4 -0.2 0 0.2 0.4};
 
 % LUT de salidas 
@@ -41,20 +41,22 @@ reglasDError = {-0.4 -0.2 0 0.2 0.4};
 
 % Valor positivo de giro, gira a la izda -> disminuye x -> aumenta error
 
-LUT = [.3 .3    .2  .1   0;
-       .3 .2    .1   0 -.1;
-       .3 .1     0 -.1 -.3;
-       .1  0   -.1 -.2 -.3;
-        0  -.1 -.2 -.3 -.3];
+LUT = [.4  .3  .2  .1   0;
+       .3  .2  .1   0 -.1;
+       .3  .1   0 -.1 -.2;
+       .1   0 -.1 -.2 -.3;
+        0 -.1 -.2 -.3 -.4];
+
+% LUT = [ones(5,1)*.45 LUT -ones(5,1)*.45];
 
 
 %% Valores para controlador
 % Conjuntos borrosos
-reglasError = FuzzySet.format(reglasError{:});
-reglasDError = FuzzySet.format(reglasDError{:});
+reglasErrorF = FuzzySet.format(reglasError{:});
+reglasDErrorF = FuzzySet.format(reglasDError{:});
 
-FSetError = FuzzySet(reglasError{:});
-FSetDError = FuzzySet(reglasDError{:});
+FSetError = FuzzySet(reglasErrorF{:});
+FSetDError = FuzzySet(reglasDErrorF{:});
 
 % Riel
 load("riel" + num2str(dificultad) + ".mat");
@@ -65,13 +67,9 @@ load_system('Monza_controlado')
 sim('Monza_controlado')
 
 %% Animación
-if animacion
-    animacion_monza(dificultad, Ts, giro_m, xs, ys)
-end
-
 if dibujos
     %% Dibujar gráficas de velocidad y posición
-    figure; %#ok<*UNRCH>
+    figure(1); %#ok<*UNRCH>
     subplot(2,2,1)
     plot(xr(:,1), xr(:,2));
     xlabel('time (s)');
@@ -97,9 +95,20 @@ if dibujos
     grid on
 
     %% Error
-    figure;
-    plot(err(:,2), derr(:,2));
+    figure(2);
+    plot(err(:,2), derr(:,2), 'b.-');
+    hold on
+    for i = 1:length(reglasError)
+        plot([reglasError{i} reglasError{i}], ylim, 'r')
+    end
+    for i = 1:length(reglasDError)
+        plot(xlim, [reglasDError{i} reglasDError{i}], 'r')
+    end
     xlabel('error (m)');
     ylabel('error velocity (m/s)');
     grid on
+end
+
+if animacion
+    animacion_monza(dificultad, Ts, giro_m, xs, ys)
 end

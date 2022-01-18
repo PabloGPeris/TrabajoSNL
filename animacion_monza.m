@@ -24,9 +24,9 @@ anim_giro_pistas;
 %**************************************************************************
 %***************GR�FICAS DE LAS CURVAS DE LA SIMULACI�N********************
 %**************************************************************************
-figure(100)
+
 for j=1:length(xs)
-    
+    figure(100)
     plot(mxp(j),myp(j)+0.01,'r*','lineWidth',15)
     
     hold on
@@ -52,9 +52,10 @@ for j=1:length(xs)
     plot(r3,r4,'r');
     axis([-0.25 0.25 -0.25 0.25])
     title('SIMULADOR GRÁFICO PLATAFORMA PARA PRUEBA Y ENSAYO DE CONTROLADORES')
+    hold off
     
     pause(t_pausa) % PGP: pequeña pausa para que se vea bien
-    hold off
+    
 end
 end
 
