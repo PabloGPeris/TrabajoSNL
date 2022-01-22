@@ -1,5 +1,5 @@
 %% Pruebas iniciales
-
+clc
 addpath ..\MONZA_SIMULACIÓN
 addpath ..\
 global riel %#ok<*NUSED>
@@ -12,22 +12,41 @@ dibujos = 0;
 animacion = 1;
 piso = 0;
 
-rate = 2;
-kp = -2;
-kd = -1;
-ki = 0;
+rate = 3;
+
+switch dificultad
+    case 1
+        kp = -1.6;
+        kd = -0.3;
+        ki = -1;
+    case 2
+        kp = -1.37;
+        kd = -0.7;
+        ki = 0;
+    case 3
+        kp = -1.7;
+        kd = -0.7;
+        ki = 0;
+    case 4
+%         kp = -1.21;
+%         kd = -1;
+%         ki = -1;
+        kp = -1.21;
+        kd = -0.99;
+        ki = -1.;
+end
 
 % Riel
 load("riel" + num2str(dificultad) + ".mat");
 
 %% Simulación
 warning('off','all')
-load_system('Monza_controlado')
-sim('Monza_controlado')
+load_system('Monza_controlado_PID')
+sim('Monza_controlado_PID')
 
 %% Animación
 if animacion
-    animacion_monza(dificultad, Ts/5, giro_m, xs, ys)
+    animacion_monza(dificultad, Ts, giro_m, xs, ys)
 end
 
 if dibujos

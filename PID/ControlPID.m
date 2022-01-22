@@ -1,29 +1,50 @@
 %% Pruebas iniciales
-
+clc
 addpath ..\MONZA_SIMULACIÓN
 addpath ..\
 global riel %#ok<*NUSED>
 
 %% Parámetros de simulación
 Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos 
-dificultad = 4;
+dificultad = 3;
 tsim = 30;
 dibujos = 0;
 animacion = 1;
 piso = 0;
 
 rate = 3;
-kp = -1.37;
-kd = -0.57;
-ki = 0;
-
 % Riel
 load("riel" + num2str(dificultad) + ".mat");
+switch dificultad
+    case 1
+        kp = -1.6;
+        kd = -0.3;
+        ki = -1;
+    case 2
+        kp = -1.37;
+        kd = -0.7;
+        ki = 0;
+    case 3
+        kp = -1.7;
+        kd = -0.7;
+        ki = 0;
+    case 4
+        kp = -1.21;
+        kd = -0.97;
+        ki = 0;
 
+        riel(5,1) = 0.0818;
+%         kp = -1.27;
+%         kd = -0.958;
+%         ki = -0;
+end
+
+
+%Para el nivel 4 modificar en la fila 5 del riel el valor de x a 0.0818
 %% Simulación
 warning('off','all')
-load_system('Monza_controlado')
-sim('Monza_controlado')
+load_system('Monza_controlado_PID')
+sim('Monza_controlado_PID')
 
 %% Animación
 if animacion
