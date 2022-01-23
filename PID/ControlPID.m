@@ -6,7 +6,7 @@ global riel %#ok<*NUSED>
 
 %% Parámetros de simulación
 Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos 
-dificultad = 3;
+dificultad = 4;
 tsim = 30;
 dibujos = 0;
 animacion = 1;
@@ -34,9 +34,7 @@ switch dificultad
         ki = 0;
 
         riel(5,1) = 0.0818;
-%         kp = -1.27;
-%         kd = -0.958;
-%         ki = -0;
+
 end
 
 
