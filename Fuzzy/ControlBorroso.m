@@ -6,10 +6,10 @@ global riel %#ok<*NUSED>
 
 %% Parámetros de simulación
 Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos 
-dificultad = 4;
+dificultad = 3;
 tsim = 30;
 dibujos = 0;
-animacion = 0;
+animacion = 1;
 
 % im = [...
 %     0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
@@ -27,7 +27,7 @@ animacion = 0;
 
 %% Diseño de controlador
 % Conjuntos borrosos
-reglasError = {-0.2 -0.1 0 0.1 0.2}; 
+reglasError = { -0.2 -0.1 0 0.1 0.2 }; 
 reglasDError = {-0.4 -0.2 0 0.2 0.4};
 
 % LUT de salidas 
