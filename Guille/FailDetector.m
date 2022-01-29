@@ -1,4 +1,4 @@
-function CAGASTE = FailDetector(giro,dificultad,pisito)
+function CAGASTE = FailDetector(x,y,giro,dificultad,pisito)
 %UNTITLED5 Summary of this function goes here
 %   Detailed explanation goes here
 global cont;
@@ -116,69 +116,56 @@ end
 CAGASTE = 0;
 switch pisito
     case 1
-        if xo>=(x1d)
-            cont=1;
-            reset_caida=0;
+        if x>=(x1d)
+            
         else
-            if ( (xo<=x1i) )
+            if ( (x<=x1i) )
 %                 if giro>0
                 if timer_mov>10
-                    cont=100;
-                    timer_mov=0;
+
                 end
-                flag_ini=1;
-                reset=0;
+
             else
-                flag_ini=0;
             end
         end
     case 2
-        if xo<=(x2i)
-            cont=1;
-            reset_caida=0;                
+        if x<=(x2i)
+               
         else
-            if xo>(x2d)
+            if x>(x2d)
                 CAGASTE = 1;
             end
         end
     case 3
-        if xo>=(x3d)
-            cont=1;
-            reset_caida=0;                
+        if x>=(x3d)                
         else
-            if xo<(x3i)
+            if x<(x3i)
                 CAGASTE = 1;
             end
         end
     case 4
-        if xo<=(x4i)
-            cont=1;
-            reset_caida=0;                
+        if x<=(x4i)               
         else
-            if xo>(x4d)
+            if x>(x4d)
                 CAGASTE = 1;
             end
         end
      case 5
-        if xo>=(x5d)
-            cont=1;
-            reset_caida=0;                
+        if x>=(x5d)                
         else
-            if xo<(x5i)
+            if x<(x5i)
                 CAGASTE = 1;
             end
         end
      case 6
-        if xo<=(x6i)
-            cont=1;
-            reset_caida=0;                
+        if x<=(x6i)              
         else
-            if xo>(x6d)
+            if x>(x6d)
                 CAGASTE = 1;
             end
         end
      case 7
-        if xo>=(x7i) || xo<(x7d) 
+        if x>=(x7i) || x<(x7d) 
             CAGASTE = 0;
         end
 end
