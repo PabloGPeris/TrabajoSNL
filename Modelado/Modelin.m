@@ -29,17 +29,17 @@ sim('Monza_modelo')
 
 
 
-xs = xr(:,2);
-ys = yr(:,2);
-xm = x_modelado(:,2);
-t = xr(:,1);
+% xs = xr(:,2);
+% ys = yr(:,2);
+% xm = x_modelado(:,2);
+% t = xr(:,1);
 
 
 if tray
     figure(101);
-    Trayectoria(dificultad, xs, ys, 'r*-','lineWidth',1);
+    Trayectoria(dificultad,  xr(:,2), yr(:,2), 'r*-','lineWidth',1);
     hold on
-    Trayectoria(dificultad, x_modelado(:,2), ys, 'c*-','lineWidth',1);
+    Trayectoria(dificultad, x_modelado(:,2), yr(:,2), 'c*-','lineWidth',1);
 end
 
 
