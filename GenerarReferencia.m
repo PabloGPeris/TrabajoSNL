@@ -5,10 +5,11 @@ function ref = GenerarReferencia(y, riel)
 for i = 1:length(riel)
     if y + 0.01 > riel(i,2)
         ref = riel(i,1);
-        disp(i)
+%         disp(i)
         return
     end
 end
+
 % disp('FIN')
 ref = 0;
 
