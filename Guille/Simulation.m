@@ -15,7 +15,7 @@ animacion = 1;
 mdl = 'Monza_controlado';
 agentblk = 'Monza_controlado/RL Agent';
 
-load('agente_1.mat') % Tipo II
+%load('agente_1.mat') % Tipo II
 load('agente_2.mat') % Tipo I
 
 %% Creación interfaz de entorno
