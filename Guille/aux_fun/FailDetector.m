@@ -1,21 +1,10 @@
-function CAGASTE = FailDetector(x,y,giro,dificultad,pisito)
+function CAIDA = FailDetector(x,y,giro,dificultad,piso)
 %UNTITLED5 Summary of this function goes here
 %   Detailed explanation goes here
-global cont;
-global xo;
-global yo;
-global ang_moneda;
-global flag_ini;
-global reset_caida;
-global reset;
-global timer_mov;
-
 
 %*********************ROTACIONES DEL DISCO*********************************
 a=cos(giro); 
 b=sin(giro);
-%*****************INVERSION DEL SENTIDO DE LA u****************************
-ang_moneda=atan(-(-b+1.08*a*b*yo+1.08*a^2*xo)/(a+1.08*b^2*yo+1.08*a*b*xo)); 
 
 %***************FINALES DE PISTA**************************************
 x1d=0; x2d=0; x3d=0; x4d=0; x5d=0; x6d=0; x7d=0;
@@ -113,18 +102,13 @@ switch dificultad
         
 end
 
-CAGASTE = 0;
-switch pisito
+CAIDA = 0;
+switch piso
     case 1
         if x>=(x1d)
             
         else
             if ( (x<=x1i) )
-%                 if giro>0
-                if timer_mov>10
-
-                end
-
             else
             end
         end
@@ -133,40 +117,40 @@ switch pisito
                
         else
             if x>(x2d)
-                CAGASTE = 1;
+                CAIDA = 1;
             end
         end
     case 3
         if x>=(x3d)                
         else
             if x<(x3i)
-                CAGASTE = 1;
+                CAIDA = 1;
             end
         end
     case 4
         if x<=(x4i)               
         else
             if x>(x4d)
-                CAGASTE = 1;
+                CAIDA = 1;
             end
         end
      case 5
         if x>=(x5d)                
         else
             if x<(x5i)
-                CAGASTE = 1;
+                CAIDA = 1;
             end
         end
      case 6
         if x<=(x6i)              
         else
             if x>(x6d)
-                CAGASTE = 1;
+                CAIDA = 1;
             end
         end
      case 7
         if x>=(x7i) || x<(x7d) 
-            CAGASTE = 0;
+            CAIDA = 0;
         end
 end
 end
