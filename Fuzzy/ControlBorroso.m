@@ -11,7 +11,7 @@ Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos
 dificultad = 4;
 tsim = 30;
 dibujos = 0;
-animacion = 0;
+animacion = 1;
 dibujos_funciones_de_pertenencia = 0;
 
 %% Diseño de controlador
