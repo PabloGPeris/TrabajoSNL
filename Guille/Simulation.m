@@ -10,7 +10,7 @@ global riel %#ok<*NUSED>
 
 %% Parámetros de simulación
 Ts = 0.033; % no cambiar este valor porque nos dicen que no lo hagamos 
-dificultad = 4;
+dificultad = 1;
 tsim = 30;
 dibujos = 0;
 animacion = 1;
@@ -18,8 +18,8 @@ animacion = 1;
 mdl = 'Monza_controlado';
 agentblk = 'Monza_controlado/RL Agent';
 
-%load('agente_2.mat') % Tipo I
-load('agente_1.mat') % Tipo II
+load('agente_2.mat') % Tipo I
+%load('agente_1.mat') % Tipo II
 
 
 %% Creación interfaz de entorno

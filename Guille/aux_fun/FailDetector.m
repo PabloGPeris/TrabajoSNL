@@ -2,11 +2,11 @@ function CAIDA = FailDetector(x,y,giro,dificultad,piso)
 %UNTITLED5 Summary of this function goes here
 %   Detailed explanation goes here
 
-%*********************ROTACIONES DEL DISCO*********************************
+%% Rotación del tablero
 a=cos(giro); 
 b=sin(giro);
 
-%***************FINALES DE PISTA**************************************
+%% Obtención limites pista
 x1d=0; x2d=0; x3d=0; x4d=0; x5d=0; x6d=0; x7d=0;
 x1i=0; x2i=0; x3i=0; x4i=0; x5i=0; x6i=0; x7i=0;
 
@@ -105,49 +105,31 @@ end
 CAIDA = 0;
 switch piso
     case 1
-        if x>=(x1d)
-            
-        else
-            if ( (x<=x1i) )
-            else
-            end
-        end
+        
     case 2
-        if x<=(x2i)
-               
-        else
-            if x>(x2d)
-                CAIDA = 1;
-            end
+        if x > x2d
+            CAIDA = 1;
         end
+
     case 3
-        if x>=(x3d)                
-        else
-            if x<(x3i)
-                CAIDA = 1;
-            end
+        if x < x3i
+            CAIDA = 1;
         end
     case 4
-        if x<=(x4i)               
-        else
-            if x>(x4d)
-                CAIDA = 1;
-            end
+        if x > x4d
+            CAIDA = 1;
         end
+
      case 5
-        if x>=(x5d)                
-        else
-            if x<(x5i)
-                CAIDA = 1;
-            end
+        if x < x5i
+            CAIDA = 1;
         end
+
      case 6
-        if x<=(x6i)              
-        else
-            if x>(x6d)
-                CAIDA = 1;
-            end
+        if x > x6d
+            CAIDA = 1;
         end
+
      case 7
         if x>=(x7i) || x<(x7d) 
             CAIDA = 0;
