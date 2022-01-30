@@ -1,5 +1,6 @@
 function u = ControlBorrosoErrorLUT(error, derror, LUT, FSetError, FSetDError)
 %u = CONTROLBORROSOERRORLUT(Yr, Yk, U, FSetError, FsetDError)
+% Controlador borroso
 
 %% Fuzzification
 mu_error = Fuzzification(FSetError, error);
