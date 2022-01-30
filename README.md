@@ -1,8 +1,9 @@
 # TrabajoSNL
-Trabajo de Sistemas No Lineales (MUAR) por Pablo García Peris
+Trabajo de Sistemas No Lineales (MUAR) por 
 
-Usad vuestras ramas
-Saludos
+Pablo García Peris
 
+Alberto López Rodríguez
 
-PGP
+Guillermo Illana Gisbert
+
