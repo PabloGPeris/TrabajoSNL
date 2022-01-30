@@ -8,12 +8,10 @@ LUT = [.3 .3    .2  .1   0;
        .1  0   -.1 -.2 -.3;
         0  -.1 -.2 -.3 -.3];
 
-% Más bonito:
+% Más bonito, si se limita la derivada:
+
 reglasError = {-0.3 -0.15 0 0.15 0.3}; 
 reglasDError = {-0.4 -0.2 0 0.2 0.4};
-
-
-
 
 
 reglasError = { -0.2 -0.1 0 0.1 0.2 }; 

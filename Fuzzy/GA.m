@@ -1,4 +1,4 @@
-clear
+%% Algoritmos genéticos
 
 addpath ..\MONZA_SIMULACIÓN
 addpath ..\
@@ -79,6 +79,8 @@ if abs(ind(14)) > abs(ind(13))
 end
 if abs(ind(16)) > abs(ind(15))
     k = ind(16);
+
+    
     ind(16) = ind(15);
     ind(15) = k;
 end
