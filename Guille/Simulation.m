@@ -12,14 +12,11 @@ tsim = 30;
 dibujos = 0;
 animacion = 1;
 
-% Riel
-load("riel" + num2str(dificultad) + ".mat");
-
-doTraining = false;
-
 mdl = 'Monza_controlado';
 agentblk = 'Monza_controlado/RL Agent';
 
+load('agente_1.mat') % Tipo II
+load('agente_2.mat') % Tipo I
 
 %% Creación interfaz de entorno
 numObservations = 5;
@@ -85,5 +82,5 @@ end
 
 if animacion
     animacion_monza(dificultad, Ts, giro_m, xs, ys)
-    Trayectoria(dificultad, xr(:,2), yr(:,2))
+    Trayectoria(dificultad, xr(:,2), yr(:,2),'m','Marker','x')
 end
